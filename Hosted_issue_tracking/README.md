@@ -41,6 +41,10 @@ Hosted Redmine is offered by:
 
 ### Altassian JIRA
 
+Pricing:
+  * First 10 users - $10/month
+  * 11-20 users    - $50/month
+
 
 
 ### Google Code
