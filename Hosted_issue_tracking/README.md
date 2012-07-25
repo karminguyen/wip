@@ -31,11 +31,36 @@ Alternatives
 
 ### Redmine 
 
+I'm currently using a Remine I'm hosting myself. 
+
+Hosted Redmine is offered by:
+  * plan.io - €9/month
+
 
 
 
 ### Altassian JIRA
 
 
+
+### Google Code
+
+
+
+
+### Mantis
+
+
+
+
+### Gitourious
+
+Only Open Source?
+
+
+
+### Bitbucket
+
+Only Open Source?
 
 
