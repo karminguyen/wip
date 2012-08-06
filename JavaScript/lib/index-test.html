@@ -1,0 +1,55 @@
+<!-- An implementation of test grouping. -->
+
+<html>
+<head>
+	<title>Test Suite</title>
+	<script src="basic.js"></script>
+	<script>
+	(function(){
+
+	<!-- Unit test functions  -->
+
+	var results;
+	
+	this.assert = function assert( value, desc ) {
+		var li = document.createElement("li");
+		li.className = value ? "pass" : "fail";
+		li.appendChild( document.createTextNode( desc ) );
+		results.appendChild( li );
+		if ( !value ) {
+			li.parentNode.parentNode.className = "fail";
+		}
+		return li;
+	};
+	
+	this.test = function test(name, fn) {
+		results = document.getElementById("results");
+		results = assert( true, name ).appendChild(
+			document.createElement("ul") );
+		fn();
+	};
+	})();
+
+	
+	<!-- Run the unit tests when the browser is ready  -->
+
+	window.onload = function(){
+		test("Testing log function. Check the result checking the console of the browser", function(){
+			assert( true, "Always true" );
+			
+			log("Logging works...");
+		});
+  
+	};
+	</script>
+	
+	<style>
+		#results li.pass { color: green; }
+		#results li.fail { color: red; }
+	</style>
+	
+</head>
+<body>
+	<ul id="results"></ul>
+</body>
+</html>
