@@ -40,6 +40,14 @@
 			log("Logging works...");
 		});
   
+		test("DOM manipulation: convert", function(){
+			assert(convert("<a/>") === "<a></a>", "Check anchor conversion."); 
+			assert(convert("<hr/>") === "<hr/>", "Check hr conversion.");
+		});
+		
+		test("DOM manipulation: getNode", function(){
+			assert(getNodes("<td>test</td><td>test2</td>").length === 2, "Get two nodes back from the method.");			assert(getNodes("<td>test</td>")[0].nodeName === "TD", "Verify that we're getting the right node.");
+		});
 	};
 	</script>
 	
