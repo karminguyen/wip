@@ -40,14 +40,17 @@
 			log("Logging works...");
 		});
   
-		test("DOM manipulation: convert", function(){
+		/* test("DOM manipulation: convert", function(){
 			assert(convert("<a/>") === "<a></a>", "Check anchor conversion."); 
 			assert(convert("<hr/>") === "<hr/>", "Check hr conversion.");
 		});
 		
 		test("DOM manipulation: getNode", function(){
 			assert(getNodes("<td>test</td><td>test2</td>").length === 2, "Get two nodes back from the method.");			assert(getNodes("<td>test</td>")[0].nodeName === "TD", "Verify that we're getting the right node.");
-		});
+		});*/
+
+		test("Micro-templating", function(){
+			assert( tmpl( "item_tmpl", {title: "TITEL"}), "Make sure that tmpl works..." );		});
 	};
 	</script>
 	
@@ -59,5 +62,13 @@
 </head>
 <body>
 	<ul id="results"></ul>
+
+	<!-- Templates -->
+	
+	<script type="text/html" id="item_tmpl">	  <div>
+	    <br/><label><%= title %></label><br/><br/>
+	  </div>
+	</script>
+
 </body>
 </html>
