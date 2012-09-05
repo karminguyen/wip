@@ -1,0 +1,41 @@
+#######################
+#
+# promises.cf
+#
+# 120905, Jonas Colmsjö, (c) gizur.com
+#
+#######################
+
+
+body common control {
+
+    any::
+        bundlesequence => {
+            "pull_cf_config", "packages", "set_timezone",
+        };
+
+
+    any::
+        inputs => {
+            "cfengine_stdlib.cf",
+            "pull_cf_config.cf",
+            "set_timezone.cf",
+            "packages.cf",
+        };
+}
+
+
+body agent control {
+    # Do not rely on DNS
+    skipidentify => "true";
+}
+
+
+# global vars
+bundle common g {
+ 
+vars:
+ 
+    "workdir"           string => "/etc/cfengine3";
+    "config_input_dir"  string => "$(workdir)";
+}
