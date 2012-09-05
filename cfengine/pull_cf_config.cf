@@ -18,8 +18,8 @@ commands:
   "/usr/bin/git"
      args    => "pull",
      chdir   => "/etc/cfengine3",
-     exec_owner => "root";
-     useshell => "true";
+     exec_owner => "root",
+     useshell => "true",
      contain => standard,
      comment => "Pull cfengine configuration updates from git repository",
      handle  => "pull_cf_config";

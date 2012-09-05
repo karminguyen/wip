@@ -36,6 +36,8 @@ bundle common g {
  
 vars:
  
-    "workdir"           string => "/etc/cfengine3";
+    # This needs to be chnaged according to the installtion
+    "workdir"           string => "/home/ubuntu/.cfagent/inputs";
+
     "config_input_dir"  string => "$(workdir)";
 }
