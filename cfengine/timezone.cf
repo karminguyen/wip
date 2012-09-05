@@ -6,13 +6,12 @@
 #
 #######################
 
-bundle agent set_timezone {
+bundle agent timezone {
 
 files:
 
     "/etc/default/timezone"
-        copy_from => local_cp("$(config_input_dir)/generic-server/etc/timezone"),
-        perms        => system;
+        copy_from => local_cp("$(config_input_dir)/generic-server/etc/timezone");
 
 commands:
 
