@@ -11,14 +11,14 @@ body common control {
 
     any::
         bundlesequence => {
-            "pull_cf_config", "packages", "timezone",
+            "cf_config", "packages", "timezone",
         };
 
 
     any::
         inputs => {
             "cfengine_stdlib.cf",
-            "pull_cf_config.cf",
+            "cf_config.cf",
             "timezone.cf",
             "packages.cf",
         };
