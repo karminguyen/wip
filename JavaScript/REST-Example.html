@@ -1,5 +1,16 @@
 <html>
 <head>
+
+    <!--
+
+    NOTE: MUST BE OPENED USING THIS URL: https://s3-eu-west-1.amazonaws.com/gc4-cdn/wip/JavaScript/REST-Example.html?AWSAccessKeyId=ASIAJTRW4N4CB6RBGZUQ&Expires=1347482377&Signature=kfNxNZm1RpCzGK9mnewP3DLC84I%3D&x-amz-security-token=AQoDYXdzEGUakALe6S0qM/mhR9CeP18n%2BfXEKmAPwIO/PBRSCbZqvfn6nzDymQEBDJ3KWzfZ9nu%2BhClHSnN5GUIwnyVo2jL5FKhl/qhgqKKK951kVREVzDTKLWHfUoaPN6GrEsthnWgm6f9KNswcpfPP1uKRu9jzX8wau/UZ9TkSIYNGeLEMPFvwdqi0ne/qjwfou9OmKsZBbvst%2BvPUITxH1OxTZNXjVa/hV7awbabd31sJJeGp%2BxPQhbgLH0ubFIYZ1yIpArL/csMhD5sGw9iI5nnWzxIuQMohrwpnsknG7RBUyQbDXRXvjhu8JBOK9zgnymV9OEb4XIf6CO/2NDSXoR5oRaGeC%2BxxPy0D05HBbeGnxMxGBZzp5yCk18OCBQ%3D%3D
+
+
+    REST CALLS WILL NOT WORK OTHERWISE DUE TO CORS POLCIES!!!
+
+    -->
+
+
 	<title>Views Example 1</title>
 	
 	<!-- My unit test and logging functions -->
@@ -23,12 +34,16 @@
 
 
 			// Play around with REST
-			$.getJSON('ajax/test.json', function(data) {
+			$.getJSON('https://s3-eu-west-1.amazonaws.com/gc4-cdn/wip/JavaScript/ajax/test.json', function(data) {
 				var items = [];
+
+				// log('logging json 1: ' + data);
 
 				$.each(data, function(key, val) {
 				    items.push('<li id="' + key + '">' + val + '</li>');
 				});
+
+				log('logging json: 2 ' + items.join(''));
 
 				$('<ul/>', {
 				    'class': 'my-new-list',
