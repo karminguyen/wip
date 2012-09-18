@@ -20,20 +20,16 @@
 
 		<div id="test1">
 			Menu:
-			<a href="#route1">#route1</a>
+			<a href="#route1">lists gists</a>
 			<a href="#route2">#route2</a>
 			<a href="#/route3/i_love/this">#route3</a>
 			<a href="#route4">#route4</a>
 		</div>
 
-		<p>
-		
-		<section id="input-section">
-			<input id="new-todo" type="text" placeholder="What needs to be done?"/>
-			<a id="add">Add</a>
-		</section>
+		<section id="blog">
+			<ul id="gists">
 
-		<section id="todos">
+			</ul>
 		</section>
 		
 		<footer>
@@ -66,28 +62,58 @@
 
 		// Cache the template function 
 		var tmpl = _.template($('#item-template').html());
-		
-		// Manage the event when add is clicked
-		$('#add').on('click', function() {			
-			var _todo = $('#new-todo')[0];
-			log('logging add '+_todo.value +'...');
-			$('#todos')[0].innerHTML = tmpl( {title: _todo.value} );
+
+		// Register ajax error handler
+		$.ajaxSetup({
+	        error: function (x, status, error) {
+				log('Got an error: ' + status + 'Error details:' + error);
+	        },
+			statusCode: {
+				403: function() {								// Both this and the error function below will be called for 4XX
+					log('Got an 403, forbidden...');
+				},
+				404: function() {
+					log('Got an 404...');
+				},
+				302: function() {
+					log('Got a re-direct, 302...');
+				}
+			}
 		});
-		
-			
+
+		// Register my own window error handler
+		window.onerror = function(errorMsg, url, lineNumber) {
+			log('Got window.onerror: ' + errorMsg + ' for URL: ' + url + ' on line number: ' + lineNumber);
+		};
+					
 		// setup crossroads, using the global object. 
 		// It is also possible to have several independent Routers
 		crossroads.addRoute('route1', function() { 
-			log('logging static route1...');} 
-		);
+			log('logging static route1...');
+
+			// Play around with REST
+			$.ajax({
+				url:      'https://api.github.com/users/colmsjo/gists',
+				dataType: 'jsonp',
+				type:     'GET',														// What's supported depends on the browser
+				//headers: {'Access-Control-Allow-Origin':'*'},
+				success: function(data) {
+
+					$.each(data.data, function(index, val) {
+
+						var li = document.createElement("li");
+						//li.className = value ? "pass" : "fail";
+						li.appendChild( document.createTextNode( val.description +":"+ val.html_url) );
+
+						log( $('#gists') );
+
+						document.getElementById("gists").appendChild( li );;
+					});
+
+				}
+			});
+		});
 		
-		crossroads.addRoute('route2', function() {
-			log('logging static route2...');} 
-		); 
-		
-		crossroads.addRoute('/{route}/{param1}/{param2}', function(route, param1, param2){
-			log('logging dynamic route:'+route+', param1:'+param1+', param2:'+param2+'...');} 
-		); 
 		
 		// default listener, log all routes that has been matched
 		crossroads.routed.add(console.log, console); 

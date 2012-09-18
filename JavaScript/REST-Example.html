@@ -3,7 +3,7 @@
 
     <!--
 
-    NOTE: MUST BE OPENED USING THIS URL: https://s3-eu-west-1.amazonaws.com/gc4-cdn/wip/JavaScript/REST-Example.html?AWSAccessKeyId=ASIAJTRW4N4CB6RBGZUQ&Expires=1347482377&Signature=kfNxNZm1RpCzGK9mnewP3DLC84I%3D&x-amz-security-token=AQoDYXdzEGUakALe6S0qM/mhR9CeP18n%2BfXEKmAPwIO/PBRSCbZqvfn6nzDymQEBDJ3KWzfZ9nu%2BhClHSnN5GUIwnyVo2jL5FKhl/qhgqKKK951kVREVzDTKLWHfUoaPN6GrEsthnWgm6f9KNswcpfPP1uKRu9jzX8wau/UZ9TkSIYNGeLEMPFvwdqi0ne/qjwfou9OmKsZBbvst%2BvPUITxH1OxTZNXjVa/hV7awbabd31sJJeGp%2BxPQhbgLH0ubFIYZ1yIpArL/csMhD5sGw9iI5nnWzxIuQMohrwpnsknG7RBUyQbDXRXvjhu8JBOK9zgnymV9OEb4XIf6CO/2NDSXoR5oRaGeC%2BxxPy0D05HBbeGnxMxGBZzp5yCk18OCBQ%3D%3D
+    NOTE: MUST BE OPENED USING THIS URL: https://s3-eu-west-1.amazonaws.com/gc4-cdn/wip/JavaScript/REST-Example.html
 
 
     REST CALLS WILL NOT WORK OTHERWISE DUE TO CORS POLCIES!!!
@@ -11,7 +11,7 @@
     -->
 
 
-	<title>Views Example 1</title>
+	<title>REST Example 1</title>
 	
 	<!-- My unit test and logging functions -->
 	<script src="lib/basic.js"></script>
@@ -26,29 +26,115 @@
 		// Cache the template function 
 		var tmpl = _.template($('#item-template').html());
 		
-		// Manage the event when add is clicked
-		$('#add').on('click', function() {			
-			var _todo = $('#new-todo')[0];
-			log('logging add '+_todo.value +'...');
-			$('#todos')[0].innerHTML = tmpl( {title: _todo.value} );
+		// Register ajax error handler
+		$.ajaxSetup({
+	        error: function (x, status, error) {
+				log('Got an error: ' + status + 'Error details:' + error);
+	        },
+			statusCode: {
+				403: function() {												// Both this and the error function below will be called for 4XX
+					log('Got an 403, forbidden...');
+				},
+				404: function() {
+					log('Got an 404...');
+				},
+				302: function() {
+					log('Got a re-direct, 302...');
+				}
+			}
+		});
 
+		// Register my own window error handler
+		window.onerror = function(errorMsg, url, lineNumber) {
+			log('Got window.onerror: ' + errorMsg + ' for URL: ' + url + ' on line number: ' + lineNumber);
+		};
+
+		// Manage the event when ajax1 is clicked
+		$('#ajax1').on('click', function() {			
 
 			// Play around with REST
-			$.getJSON('https://s3-eu-west-1.amazonaws.com/gc4-cdn/wip/JavaScript/ajax/test.json', function(data) {
-				var items = [];
+			$.ajax({
+				url:      'ajax/test.json',
+				dataType: 'json',
+				type:     'GET',														// What's supported depends on the browser
+				headers: {'API_KEY':'ASDFGH123455'},
+				success: function(data) {
 
-				// log('logging json 1: ' + data);
+					var items = [];
 
-				$.each(data, function(key, val) {
-				    items.push('<li id="' + key + '">' + val + '</li>');
-				});
+					log('logging json: ' + JSON.stringify(data) );
 
-				log('logging json: 2 ' + items.join(''));
+					$.each(data, function(key, val) {
+					    items.push('<li id="' + key + '">' + val + '</li>');
+					});
 
-				$('<ul/>', {
-				    'class': 'my-new-list',
-				    html: items.join('')
-				}).appendTo('body');
+					log('logging json: ' + items.join(''));
+
+					$('<ul/>', {
+					    'class': 'my-new-list',
+					    html: items.join('')
+					}).appendTo('body');
+				}
+			});
+
+		});
+
+		// Manage the event when ajax2 is clicked
+		$('#ajax2').on('click', function() {			
+			// Play around with REST
+			$.ajax({
+				url:      'ajax/test1.json',
+				dataType: 'json',
+				type:     'GET',														// What's supported depends on the browser
+				headers: {'API_KEY':'ASDFGH123455'},
+				success: function(data) {
+
+					var items = [];
+
+					log('logging json: ' + JSON.stringify(data) );
+
+					$.each(data, function(key, val) {
+					    items.push('<li id="' + key + '">' + val + '</li>');
+					});
+
+					log('logging json: ' + items.join(''));
+
+					$('<ul/>', {
+					    'class': 'my-new-list',
+					    html: items.join('')
+					}).appendTo('body');
+				}
+			});
+
+		});
+
+
+		// Manage the event when ajax3 is clicked
+		$('#ajax3').on('click', function() {	
+
+			// Play around with REST
+			$.ajax({
+				url:      'https://api.github.com/users/colmsjo/repos',
+				dataType: 'jsonp',
+				type:     'GET',														// What's supported depends on the browser
+				//headers: {'Access-Control-Allow-Origin':'*'},
+				success: function(data) {
+
+					var gists = [];
+
+					log('logging json: ' + JSON.stringify(data) );
+
+					$.each(data, function(index, val) {
+					    gists.push( val.description );
+					});
+
+					log('logging json: ' + items.join(''));
+
+					$('<ul/>', {
+					    'class': 'my-new-list',
+					    html: items.join('')
+					}).appendTo('body');
+				}
 			});
 
 		});
@@ -72,12 +158,13 @@
 	<div id="myapp">
 	
 		<header>
-			<h1>My App</h1>
+			<h1>REST Exampel</h1>
 		</header>
 		
 		<section id="input-section">
-			<input id="new-todo" type="text" placeholder="What needs to be done?"/>
-			<a id="add">Add</a>
+			<a id="ajax1">Ajax request 1</a>
+			<a id="ajax2">Ajax request 2</a>
+			<a id="ajax3">Ajax request 3</a>
 		</section>
 
 		<section id="todos">
