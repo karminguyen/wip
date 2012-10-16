@@ -1,0 +1,107 @@
+<html>
+<head>
+	<title>Git Content Example 1</title>
+	
+
+	<style>
+		#results li.pass { color: green; }
+		#results li.fail { color: red; }
+	</style>
+
+
+</head>
+<body>
+
+	<div id="myapp">
+	
+		<header>
+			<h1>My App</h1>
+		</header>
+		
+		<section id="input-section">
+			<input id="new-todo" type="text" placeholder="What needs to be done?"/>
+			<a id="add">Add</a>
+		</section>
+
+		<section id="todos">
+		</section>
+		
+		<footer>
+			2012 by Gizur AB
+		</footer>
+	  
+	</div>
+
+	<div id="container">
+		No content!
+	</div>
+	
+
+	<ul id="results"></ul>
+
+
+	<!-- Scripts at the end for better performance -->
+
+
+	<!-- My unit test and logging functions -->
+	<script src="lib/helpers-1.0.js"></script>
+
+	<!-- Used for the views -->
+	<script src="lib/underscore-min.js"></script>
+	<script src="lib/jquery.min.js"></script>
+
+
+	<!-- When the browser is ready -->
+	<script>
+	window.onload = function(){
+
+		// Manage the event when ajax1 is clicked
+		$('#add').on('click', function() {			
+
+			// Play around with REST
+			$.ajax({
+				url:      'ajax/test.json',
+				dataType: 'json',
+				type:     'GET',														// What's supported depends on the browser
+				headers: {'API_KEY':'ASDFGH123455'},
+				success: function(data) {
+
+					var items = [];
+
+					log('logging json: ' + JSON.stringify(data) );
+
+					$.each(data, function(key, val) {
+					    items.push('<li id="' + key + '">' + val + '</li>');
+					});
+
+					log('logging json: ' + items.join(''));
+
+					$('<ul/>', {
+					    'class': 'my-new-list',
+					    html: items.join('')
+					}).appendTo('body');
+				}
+			});
+
+		});
+
+
+		test("Testing Git Content...", function(){	
+			// Doing nothing right now
+		});
+  
+	};
+	</script>
+
+
+	<!-- Templates -->
+	
+	<script type="text/template" id="item-template">
+	  <div>
+	    <br/><label><%= title %></label><br/><br/>
+	  </div>
+	</script>
+
+
+</body>
+</html>
