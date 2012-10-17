@@ -23,6 +23,29 @@
 
 	window.onload = function(){
 
+		// Register ajax error handler
+		$.ajaxSetup({
+	        error: function (x, status, error) {
+				log('Got an error: ' + status + 'Error details:' + error);
+	        },
+			statusCode: {
+				403: function() {												// Both this and the error function below will be called for 4XX
+					log('Got an 403, forbidden...');
+				},
+				404: function() {
+					log('Got an 404...');
+				},
+				302: function() {
+					log('Got a re-direct, 302...');
+				}
+			}
+		});
+
+		// Register my own window error handler
+		window.onerror = function(errorMsg, url, lineNumber) {
+			log('Got window.onerror: ' + errorMsg + ' for URL: ' + url + ' on line number: ' + lineNumber);
+		};
+
 		// Cache the template function 
 		var tmpl = _.template($('#item-template').html());
 		
