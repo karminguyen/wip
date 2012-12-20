@@ -121,14 +121,14 @@
  *  Instantiate the hooks class
  * ------------------------------------------------------
  */
-	$EXT =& load_class('Hooks', 'core');
+	// Colmsjö - not needed   $EXT =& load_class('Hooks', 'core');
 
 /*
  * ------------------------------------------------------
  *  Is there a "pre_system" hook?
  * ------------------------------------------------------
  */
-	$EXT->_call_hook('pre_system');
+	// Colmsjö - not needed  $EXT->_call_hook('pre_system');
 
 /*
  * ------------------------------------------------------
@@ -155,7 +155,7 @@
  *
  */
 
-	$UNI =& load_class('Utf8', 'core');
+	// Colmsjö - not needed $UNI =& load_class('Utf8', 'core');
 
 /*
  * ------------------------------------------------------
@@ -203,21 +203,21 @@
  * Load the security class for xss and csrf support
  * -----------------------------------------------------
  */
-	$SEC =& load_class('Security', 'core');
+	// Colmsjö - not needed $SEC =& load_class('Security', 'core');
 
 /*
  * ------------------------------------------------------
  *  Load the Input class and sanitize globals
  * ------------------------------------------------------
  */
-	$IN	=& load_class('Input', 'core');
+	// Colmsjö - not needed $IN	=& load_class('Input', 'core');
 
 /*
  * ------------------------------------------------------
  *  Load the Language class
  * ------------------------------------------------------
  */
-	$LANG =& load_class('Lang', 'core');
+	// Colmsjö - not needed $LANG =& load_class('Lang', 'core');
 
 /*
  * ------------------------------------------------------

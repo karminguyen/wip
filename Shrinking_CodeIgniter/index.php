@@ -72,7 +72,9 @@ if (defined('ENVIRONMENT'))
  * NO TRAILING SLASH!
  *
  */
-	$application_folder = 'application';
+
+	// Colmsjö - changing this from 'application' to current directory
+	$application_folder = '.';
 
 /*
  * --------------------------------------------------------------------
