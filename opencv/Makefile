@@ -1,41 +1,5 @@
-#
-# http://image.diku.dk/mediawiki/index.php/OpenCV
-#
+CFLAGS = `pkg-config --cflags opencv`
+LIBS = `pkg-config --libs opencv`
 
-#
-# DEPS =
-# OBJ = example1.o 
-#
-# %.o: %.c $(DEPS)
-# 	$(CXX) -c -o $@ $< $(CFLAGS) $(CXXFLAGS)
-#
-# example1: $(OBJ)
-#	gcc -o $@ $^ $(LDFLAGS)
-
-#
-
-# Compile and link flags
-CXX          =  g++
-CFLAGS       = -Wall -g
-
-# Compilation (add flags as needed)
-CXXFLAGS    += `pkg-config opencv --cflags`
-
-# Linking (add flags as needed)
-LDFLAGS     += `pkg-config opencv --libs`
-
-# Name your target executables here
-all         = example1
-
-# Default target is the first one - so we will have it make everything :-)
-all: $(all)
-
-clean: rm -f $(all) *.o
-
-OBJ = example1.o 
-
-example1.o: example1.c 
-	$(CXX) -c -o $@ $< $(CFLAGS) $(CXXFLAGS)
-
-example1: $(OBJ)
-	gcc -o $@ $^ $(LDFLAGS)
+% : %.cpp
+        g++ $(CFLAGS) $(LIBS) -o $@ $<
