@@ -1,3 +1,7 @@
+#
+# http://image.diku.dk/mediawiki/index.php/OpenCV
+#
+
 # Compile and link flags
 CXX          =  g++
 CFLAGS       = -Wall -g
@@ -14,8 +18,18 @@ all         = example1
 # Default target is the first one - so we will have it make everything :-)
 all: $(all)
 
-clean:
-    rm -f $(all) *.o
+clean: rm -f $(all) *.o
 
 # Program dependencies (.o files will be compiles by implicit rules)
-example1: example1.o
+# example1: example1.o
+
+# example1.c: example1.o
+
+DEPS =
+OBJ = example1.o 
+
+%.o: %.c $(DEPS)
+	$(CXX) -c -o $@ $< $(CFLAGS) $(CXXFLAGS)
+
+example1: $(OBJ)
+	gcc -o $@ $^ $(LDFLAGS)
