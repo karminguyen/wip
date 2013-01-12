@@ -1,0 +1,21 @@
+# Compile and link flags
+CXX          =  g++
+CFLAGS       = -Wall -g
+
+# Compilation (add flags as needed)
+CXXFLAGS    += `pkg-config opencv --cflags`
+
+# Linking (add flags as needed)
+LDFLAGS     += `pkg-config opencv --libs`
+
+# Name your target executables here
+all         = example1
+
+# Default target is the first one - so we will have it make everything :-)
+all: $(all)
+
+clean:
+    rm -f $(all) *.o
+
+# Program dependencies (.o files will be compiles by implicit rules)
+example1: example1.o
