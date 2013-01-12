@@ -32,10 +32,6 @@ all: $(all)
 
 clean: rm -f $(all) *.o
 
-# Program dependencies (.o files will be compiles by implicit rules)
-example1: example1.o
-
-
 OBJ = example1.o 
 
 example1.o: example1.c 
