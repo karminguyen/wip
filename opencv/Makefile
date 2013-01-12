@@ -2,6 +2,18 @@
 # http://image.diku.dk/mediawiki/index.php/OpenCV
 #
 
+#
+# DEPS =
+# OBJ = example1.o 
+#
+# %.o: %.c $(DEPS)
+# 	$(CXX) -c -o $@ $< $(CFLAGS) $(CXXFLAGS)
+#
+# example1: $(OBJ)
+#	gcc -o $@ $^ $(LDFLAGS)
+
+#
+
 # Compile and link flags
 CXX          =  g++
 CFLAGS       = -Wall -g
@@ -23,12 +35,10 @@ clean: rm -f $(all) *.o
 # Program dependencies (.o files will be compiles by implicit rules)
 # example1: example1.o
 
-# example1.c: example1.o
 
-DEPS =
 OBJ = example1.o 
 
-%.o: %.c $(DEPS)
+example1.o: example1.c 
 	$(CXX) -c -o $@ $< $(CFLAGS) $(CXXFLAGS)
 
 example1: $(OBJ)
