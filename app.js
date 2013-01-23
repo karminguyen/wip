@@ -55,6 +55,7 @@ app.get('/', function(request, response) {
     var html = '<html>' +
     '<body>' +
     '<h1>WIP test app!</h1>' +
+    '<a href="JavaScript/Persona_BrowserID.html">Persona</a>' +
     '</body></html>';
 
     response.send(html);
