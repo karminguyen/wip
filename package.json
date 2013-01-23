@@ -16,7 +16,7 @@
       "url"  : "https://github.com/gizur/gizur-cron/blob/master/LICENSE-MIT"
     }
   ],
-  "main": "app.js",
+  "main": "static_server.js",
   "dependencies": {
     "time"         : "0.8.x",
     "express"      : ">=2.5.x",
@@ -31,15 +31,6 @@
   "engines": {
     "node" : "0.8.x",
     "npm"  : "1.1.x"
-  },
-   "bin": {
-    "server": "./bin/server"
-  },
-  "scripts": {
-    "test"       : "grunt test",
-    "start"      : "node --debug-brk app.js",
-    "predeploy"  : "echo Starting to deploy app...",
-    "postdeploy" : "echo Application deployed."
   },
   "devDependencies": {
     "grunt"          : "~0.3.16"
