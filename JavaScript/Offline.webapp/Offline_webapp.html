@@ -94,7 +94,7 @@
               // not installed
               logDebug('App has not been installed');
 
-              var request2 = navigator.mozApps.install("http://warm-inlet-2810.herokuapp.com/JavaScript/Offline_webapp.html");
+              var request2 = navigator.mozApps.install("http://warm-inlet-2810.herokuapp.com/JavaScript/Offline.webapp/Offline_webapp.html");
               request2.onsuccess = function() {
                 // great - display a message, or redirect to a launch page
                 logDebug('App was successfully installed: Name: ' + request2.result.manifest.name);
