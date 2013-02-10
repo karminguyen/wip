@@ -44,4 +44,4 @@ http.createServer(function(request, response) {
   });
 }).listen(parseInt(port, 10));
 
-console.log("Static file server running at\n  => http://localhost:" + port + "/\nCTRL
+console.log("Static file server running at\n  => http://localhost:" + port + "/\nCTRL");
