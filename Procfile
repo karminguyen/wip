@@ -1,1 +1,1 @@
-web: node static_server.js
+web: node static_server2.js
