@@ -74,24 +74,24 @@
 
     window.onload = function(){
 
-      // Add some event listeners
-      // ------------------------
-
-      window.applicationCache.addEventListener("error", function(e) {
-        logDebug("Error fetching manifest: a good chance we are offline");
-      });
-
-      window.addEventListener("offline", function(e) {
-        logDebug("offline...");
-      }, false);
-
-      window.addEventListener("online", function(e) {
-        logDebug("online...");
-      }, false);
-
-
-
       (function(){
+
+
+        // Add some event listeners
+        // ------------------------
+
+        window.applicationCache.addEventListener("error", function(e) {
+          logDebug("Error fetching manifest: a good chance we are offline");
+        });
+
+        window.addEventListener("offline", function(e) {
+          logDebug("offline...");
+        }, false);
+
+        window.addEventListener("online", function(e) {
+          logDebug("online...");
+        }, false);
+
 
         // Check the application cache
         // --------------------------------------------------------------
@@ -125,14 +125,7 @@
 
       logging.threshold  = logging.debug;
       logDebug('Loading page...');
-
-      if(checkBrowser() != "firefox") {
-        logErr('ERROR: only firefox supports offline webapps! You are running ' + checkBrowser() + '.');
-        logErr("Continuing but you'll most likely get a bunch of erorrs!");
-      }
-
-      // Install the app
-      // installApp();
+      logDebug('You are running ' + checkBrowser() + '.');
 
       checkAppCache();
 
@@ -190,6 +183,12 @@
       //update URL fragment generating new history record 
       hasher.setHash('route1');
 
+
+      test("Validate that the app has loaded ok...", function(){
+        
+        assert( "testing" == "testing", "Test are executing and the page has been loaded if this is shown" );
+      });
+   
 
     } // window.onload
 
