@@ -1,21 +1,19 @@
 CACHE MANIFEST
 
-# The application
+# The application and all files
 
 CACHE:
 /JavaScript/Fortnox_API_test/index.html
 
+/lib/js/jquery.min.js
+/lib/js/bootstrap.min.js
 
-# These are not in my domain so they can't be cached
+/lib/js/persona-include.js
 
-NETWORK:
-https://ajax.googleapis.com/ajax/libs/jquery/1.9.0/jquery.min.js
-http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/js/bootstrap.min.js
-https://login.persona.org/include.js
-https://raw.github.com/colmsjo/helpersjs/master/lib/js/helpers-1.0.js
-https://raw.github.com/colmsjo/helpersjs/master/lib/js/signals.js
-https://raw.github.com/colmsjo/helpersjs/master/lib/js/crossroads.min.js
-https://raw.github.com/colmsjo/helpersjs/master/lib/js/hasher.min.js
-https://raw.github.com/colmsjo/helpersjs/master/lib/js/plates.js
+/lib/js/helpers-1.0.js
+/lib/js/signals.js
+/lib/js/crossroads.min.js
+/lib/js/hasher.min.js
+lib/js/plates.js
 
-http://netdna.bootstrapcdn.com/twitter-bootstrap/2.2.2/css/bootstrap-combined.min.css
+/lib/css/bootstrap-combined.min.css
