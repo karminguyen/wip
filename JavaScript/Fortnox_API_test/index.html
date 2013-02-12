@@ -123,11 +123,13 @@
       // Some general setup
       // -------------------------------
 
+      var runUnitTest = ( window.location.hash == '#unittest');
+
       logging.threshold  = logging.debug;
       logDebug('Loading page...');
       logDebug('You are running ' + checkBrowser() + '.');
 
-      logDebug('The hash of the URL used is: ' + window.location.hash);
+      logDebug('Running unit tests: ' + runUnitTest);
 
       checkAppCache();
 
@@ -186,17 +188,30 @@
       hasher.setHash('route1');
 
 
-      // In-browser unit tests
-      // -------------------------------
+      // Run In-browser unit tests of the hash has been set to '#unittest'
+      // -----------------------------------------------------------------
 
-      test("Validate that the app has loaded ok...", function(){
-        
-        assert( "testing" == "testing", "Tests are executing and the page has been loaded if this is shown" );
-      });
-   
+      if (runUnitTest) {
+
+        test("Validate that the app has loaded ok...", function(){
+          
+          assert( "testing" == "testing", "Tests are executing and the page has been loaded if this is shown" );
+        });
+
+      }     
 
     } // window.onload
 
     </script>
+
+
+    <!-- Give unit test results a little color -->
+
+    <style>
+      #results li.pass { color: green; }
+      #results li.fail { color: red; }
+    </style>
+
+
   </body>
 </html>
