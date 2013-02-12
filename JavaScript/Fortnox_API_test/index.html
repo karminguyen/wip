@@ -1,6 +1,4 @@
-<html>
-
-<!-- manifest="/JavaScript/Fortnox_API_test/fortnox.appcache"> -->
+<html manifest="/JavaScript/Fortnox_API_test/fortnox.appcache">
 
   <head>
     <title>Offline webapp</title>
@@ -76,6 +74,9 @@
 
     window.onload = function(){
 
+      // Add some event listeners
+      // ------------------------
+
       window.applicationCache.addEventListener("error", function(e) {
         logDebug("Error fetching manifest: a good chance we are offline");
       });
@@ -89,45 +90,8 @@
       }, false);
 
 
-      // Define some functions
-      // ---------------------
 
       (function(){
-
-        // Check if the web apps has been installed and install otherwise
-        // --------------------------------------------------------------
-
-        this.installApp = function installApp() {
-
-          var request = navigator.mozApps.getSelf();
-
-          request.onsuccess = function() {
-            if (request.result) {
-              // we're installed
-              logDebug('App has already been installed');
-            } else {
-              // not installed
-              logDebug('App has not been installed');
-
-              var request2 = navigator.mozApps.install("http://warm-inlet-2810.herokuapp.com/JavaScript/Offline.webapp/");
-              request2.onsuccess = function() {
-                // great - display a message, or redirect to a launch page
-                logDebug('App was successfully installed: Name: ' + request2.result.manifest.name);
-              };
-              request2.onerror = function() {
-                // whoops - this.error.name has details
-                logErr('ERROR: Could not install app! Error: ' + request2.error.name);
-
-              };
-            }
-          };
-
-          request.onerror = function() {
-            logError('Error checking installation status: ' + this.error.message);
-          };
-
-        };
-
 
         // Check the application cache
         // --------------------------------------------------------------
