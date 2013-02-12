@@ -14,6 +14,6 @@ CACHE:
 /lib/js/signals.js
 /lib/js/crossroads.min.js
 /lib/js/hasher.min.js
-lib/js/plates.js
+/lib/js/plates.js
 
 /lib/css/bootstrap-combined.min.css
