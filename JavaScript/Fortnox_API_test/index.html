@@ -73,7 +73,9 @@
 
     window.onload = function(){
 
-
+      window.applicationCache.addEventListener("error", function(e) {
+        logDebug("Error fetching manifest: a good chance we are offline");
+      });
       // Define some functions
       // ---------------------
 
