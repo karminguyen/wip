@@ -36,6 +36,10 @@ http.createServer(function(request, response) {
       }
 
       var headers = {};
+
+      // JC, Disable caching, easier when developing
+      headers["Cache-Control"] = 'no-cache';
+
       var contentType = contentTypesByExtension[path.extname(filename)];
       if (contentType) headers["Content-Type"] = contentType;
       response.writeHead(200, headers);
