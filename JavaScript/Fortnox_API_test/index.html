@@ -127,6 +127,8 @@
       logDebug('Loading page...');
       logDebug('You are running ' + checkBrowser() + '.');
 
+      logDebug('The hash of the URL used is: ' + window.location.hash);
+
       checkAppCache();
 
       // Setup routing
@@ -184,9 +186,12 @@
       hasher.setHash('route1');
 
 
+      // In-browser unit tests
+      // -------------------------------
+
       test("Validate that the app has loaded ok...", function(){
         
-        assert( "testing" == "testing", "Test are executing and the page has been loaded if this is shown" );
+        assert( "testing" == "testing", "Tests are executing and the page has been loaded if this is shown" );
       });
    
 
