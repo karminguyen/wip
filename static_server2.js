@@ -14,7 +14,7 @@ http.createServer(function(request, response) {
     '.css':  "text/css",
     '.js':   "text/javascript",
     '.webapp':   "application/x-web-app-manifest+json",
-    '.appcache':   "text/cache-manifest"
+    '.appcache':   "text/cache-manifest" 
   };
 
   path.exists(filename, function(exists) {
