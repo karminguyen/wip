@@ -79,6 +79,16 @@
       window.applicationCache.addEventListener("error", function(e) {
         logDebug("Error fetching manifest: a good chance we are offline");
       });
+
+      window.addEventListener("offline", function(e) {
+        logDebug("offline...");
+      }, false);
+
+      window.addEventListener("online", function(e) {
+        logDebug("online...");
+      }, false);
+
+
       // Define some functions
       // ---------------------
 
