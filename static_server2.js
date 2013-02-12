@@ -13,7 +13,8 @@ http.createServer(function(request, response) {
     '.html': "text/html",
     '.css':  "text/css",
     '.js':   "text/javascript",
-    '.webapp':   "application/x-web-app-manifest+json"
+    '.webapp':   "application/x-web-app-manifest+json",
+    '.appcache':   "text/cache-manifest"
   };
 
   path.exists(filename, function(exists) {

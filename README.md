@@ -1,4 +1,4 @@
 Work In Progress
 ===============
 
-See the Wiki for more information: https://github.com/colmsjo/wip/wiki
+See my blog for more information: http://colmsjo.com
