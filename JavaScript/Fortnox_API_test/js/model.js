@@ -17,14 +17,14 @@
 'use strict';
 
 var FortnoxModel = Stapes.subclass({
-    'constructor' : function() {
-        // Empty
-    },
+    'constructor' : function(store) {
+        this.set( store );
+   },
 
 
 });
 
-var ModelStore = Stapes.subclass({
+var FortnoxStore = Stapes.subclass({
     'constructor' : function() {
         if (!'localStorage' in window) {
             logErr("Saving is not supported in your browser :(")
@@ -33,7 +33,7 @@ var ModelStore = Stapes.subclass({
 
     'load': function() {
         var result = window.localStorage['fortnox-api-test'];
-        logDebug('Loaded data from local storage: ' + data );
+        logDebug('Loaded data from local storage: ' + result );
         return result ? JSON.parse(result) : {};
     },
 

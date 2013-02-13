@@ -46,7 +46,7 @@ var FortnoxController = Stapes.subclass({
         });
 
         this.view.on({
-            'database_id_update': function() {
+            'database_id_update': function(value) {
                 logDebug('View received database_id_update:' + value);
             }
 

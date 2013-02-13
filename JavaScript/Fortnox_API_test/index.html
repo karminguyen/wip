@@ -1,6 +1,6 @@
 <!doctype html>
 
-<!-- <html manifest="/JavaScript/Fortnox_API_test/fortnox.appcache"> -->
+<html manifest="/JavaScript/Fortnox_API_test/fortnox.appcache">
 
 <html>
 
@@ -106,10 +106,10 @@
 
     <!-- Scripts at the end for better performance -->
 
-    <script src="/lib/js/jquery.min.js"></script>
+    <script src="/lib/js/jquery.js"></script>
     <script src="/lib/js/bootstrap.min.js"></script>
     <script src="/lib/js/persona-include.js"></script>
-    <!-- <script src="/lib/js/modernizr-build.min.js"></script> -->
+    <script src="/lib/js/modernizr-build.min.js"></script>
 
     <script src="/lib/js/helpers-1.0.js"></script>
     <script src="/lib/js/signals.js"></script>
@@ -197,7 +197,7 @@
         this.checkAppCache = function checkAppCache() {
 
           var appCache = window.applicationCache,
-              status = {};
+              status   = {};
           
           status[appCache.UNCACHED]    = 'UNCACHED';
           status[appCache.IDLE]        = 'IDLE';
@@ -225,11 +225,11 @@
         logDebug('You are running ' + checkBrowser() + '.');
         logDebug('Running unit tests: ' + runUnitTest);
 
-        /*if (Modernizr.localstorage) {
+        if (Modernizr.localstorage) {
           logDebug("window.localStorage is available!");
         } else {
           logDebug("window.localStorage is NOT available!");
-        }*/
+        }
 
         checkAppCache();
 
