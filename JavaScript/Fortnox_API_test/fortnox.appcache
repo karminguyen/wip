@@ -10,11 +10,16 @@ CACHE:
 /lib/js/jquery.min.js
 /lib/js/bootstrap.min.js
 /lib/js/persona-include.js
-/lib/js/modernizr-build.min.js
+# /lib/js/modernizr-build.min.js
 
 /lib/js/helpers-1.0.js
 /lib/js/signals.js
 /lib/js/crossroads.min.js
 /lib/js/hasher.min.js
 /lib/js/plates.js
+/lib/js/stapes.min.js
+
+/JavaScript/Fortnox_API_test/js/view.js
+/JavaScript/Fortnox_API_test/js/model.js
+/JavaScript/Fortnox_API_test/js/controller.js
 

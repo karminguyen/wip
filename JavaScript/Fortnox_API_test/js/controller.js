@@ -42,12 +42,13 @@ var FortnoxController = Stapes.subclass({
         this.on({
             'database_id_update': function(value) {
                 logDebug('Controller received database_id_update: '+ value);
+            }
         });
 
         this.view.on({
             'database_id_update': function() {
                 logDebug('View received database_id_update:' + value);
-            },
+            }
 
         }, this);
     }
