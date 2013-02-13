@@ -19,24 +19,70 @@
 
     <div class="container">
 
-      <!-- The menu used to show different templates -->
-     <div id="test1">
-        Menu:
-        <a href="#route1">#screen1</a> 
-        <a href="#route2">#screen2</a> 
-        <a href="#route3">#screen3</a>
-      </div>
+      <!-- Top row with menu -->
+      <div class="row">
+        <div class="span12">
+
+          <!-- The menu used to show different templates -->
+          <div id="menu">
+            Menu:
+            <a href="#route1">#screen1</a> 
+            <a href="#route2">#screen2</a> 
+            <a href="#route3">#screen3</a>
+          </div>
+
+        </div> <!-- /span12 -->
+      </div> <!-- /row -->
+
+      <!-- Second row with content -->
+      <div class="row">
+
+        <!-- Left column with the UI -->
+        <div class="span8">
+
+          <!-- Templates are rendered here -->
+          <div id="ui">
+          </div>
+
+        </div> <!-- /span8 -->
 
 
-      <!-- Templates are rendered here -->
-      <div id="ui">
-      </div>
+        <!-- Left column with some settings -->
+        <div class="span4">
+          <form>
+            <fieldset>
+              <legend>Settings</legend>
+
+              <span class="help-block">These settings are stored locally on your laptop and nowhere else. The 
+                calls to Fortnox are made with HTTPS so your credentials are safe.</span>
+
+              <label>Databas</label>
+              <input id="database_id" type="text" placeholder="Your Fortnox database id">
+              <span class="help-block">Your Database id is showed in Administration in the Lobby in Fortnox.</span>
+
+              <label>API Token</label>
+              <input id="api_token" type="text" placeholder="Your Fortnox token">
+              <span class="help-block">Your token is showed in Administration in the Lobby in Fortnox.</span>
+
+            </fieldset>
+          </form>
+
+
+        </div> <!-- /span4 -->
+      </div> <!-- /row -->
+
+ 
+      <!-- Bottom row with tests etc. -->
+      <div class="row">
+        <div class="span12">
+ 
+          <!-- Show test results -->
+          <ul id="results"></ul>
+
+        </div> <!-- /span12 -->
+      </div> <!-- /row -->
 
     </div> <!-- /container -->
-
-
-    <!-- Show test results -->
-    <ul id="results"></ul>
 
 
     <!-- Templates -->
@@ -60,6 +106,7 @@
     <script src="/lib/js/jquery.min.js"></script>
     <script src="/lib/js/bootstrap.min.js"></script>
     <script src="/lib/js/persona-include.js"></script>
+    <script src="/lib/js/modernizr-build.min.js"></script>
 
     <script src="/lib/js/helpers-1.0.js"></script>
     <script src="/lib/js/signals.js"></script>
@@ -67,11 +114,57 @@
     <script src="/lib/js/hasher.min.js"></script>
     <script src="/lib/js/plates.js"></script>
 
+    <script src="js/view.js"></script>
+    <script src="js/controller.js"></script>
+    <script src="js/model.js"></script>
 
     <script type="text/javascript">
 
-    // Make sure the page is loading
-    // -----------------------------
+    // Design overviw
+    //=========================================================
+    //
+    // The stapesjs micro MVC library is used. 
+    //
+    // A publish/subscribe model is used
+    //----------------------------------------------------------------
+    //
+    // | Event          | Publishers     | Subscribers    |
+    // |----------------|----------------|----------------|
+    // |                |                |                |
+    //
+    //
+    // DOM objects:
+    //----------------------------------------------------------------
+    // | Object         | Event          | Notes          |
+    // |----------------|----------------|----------------|
+    // | Window         |                |                |
+    // | database_id    |                | input          |
+    // | api_token      |                | input          |
+    //
+    //
+    // View objects:
+    //---------------------------------------------------------------
+    // | Object         | Event          | Notes          |
+    // |----------------|----------------|----------------|
+    // |                |                |                |
+    //
+    //
+    // Controller objects:
+    //---------------------------------------------------------------
+    // | Object         | Event          | Notes          |
+    // |----------------|----------------|----------------|
+    // |                |                |                |
+    //
+    //
+    // Model objects:
+    //---------------------------------------------------------------
+    // | Object         | Event          | Notes          |
+    // |----------------|----------------|----------------|
+    // |                |                |                |
+    //
+
+    // Make sure the page is loading before we start
+    // ---------------------------------------------
 
     window.onload = function(){
 
@@ -129,8 +222,13 @@
       logging.threshold  = logging.debug;
       logDebug('Loading page...');
       logDebug('You are running ' + checkBrowser() + '.');
-
       logDebug('Running unit tests: ' + runUnitTest);
+
+      if (Modernizr.localstorage) {
+        logDebug("window.localStorage is available!");
+      } else {
+        logDebug("window.localStorage is NOT available!");
+      }
 
       checkAppCache();
 
