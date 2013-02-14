@@ -116,7 +116,7 @@
     <script src="/lib/js/crossroads.min.js"></script>
     <script src="/lib/js/hasher.min.js"></script>
     <script src="/lib/js/plates.js"></script>
-    <script src="/lib/js/stapes.min.js"></script>
+    <script src="/lib/js/stapes.js"></script>
 
     <script src="/JavaScript/Fortnox_API_test/js/view.js"></script>
     <script src="/JavaScript/Fortnox_API_test/js/controller.js"></script>
@@ -124,48 +124,6 @@
 
     <script type="text/javascript">
 
-    // Design overview
-    //=========================================================
-    //
-    // The stapesjs micro MVC library is used. 
-    //
-    // A publish/subscribe model is used
-    //----------------------------------------------------------------
-    //
-    // | Event          | Publishers     | Subscribers    |
-    // |----------------|----------------|----------------|
-    // |                |                |                |
-    //
-    //
-    // DOM objects:
-    //----------------------------------------------------------------
-    // | Object         | Event          | Notes          |
-    // |----------------|----------------|----------------|
-    // | Window         |                |                |
-    // | database_id    |                | input          |
-    // | api_token      |                | input          |
-    //
-    //
-    // View objects:
-    //---------------------------------------------------------------
-    // | Object         | Event          | Notes          |
-    // |----------------|----------------|----------------|
-    // |                |                |                |
-    //
-    //
-    // Controller objects:
-    //---------------------------------------------------------------
-    // | Object         | Event          | Notes          |
-    // |----------------|----------------|----------------|
-    // |                |                |                |
-    //
-    //
-    // Model objects:
-    //---------------------------------------------------------------
-    // | Object         | Event          | Notes          |
-    // |----------------|----------------|----------------|
-    // |                |                |                |
-    //
 
     // Make sure the page is loading before we start
     // ---------------------------------------------
@@ -174,139 +132,13 @@
 
       (function(){
 
-
-        // Add some event listeners
-        // ------------------------
-
-        window.applicationCache.addEventListener("error", function(e) {
-          logDebug("Error fetching manifest: a good chance we are offline");
-        });
-
-        window.addEventListener("offline", function(e) {
-          logDebug("offline...");
-        }, false);
-
-        window.addEventListener("online", function(e) {
-          logDebug("online...");
-        }, false);
-
-
-        // Check the application cache
-        // --------------------------------------------------------------
-
-        this.checkAppCache = function checkAppCache() {
-
-          var appCache = window.applicationCache,
-              status   = {};
-          
-          status[appCache.UNCACHED]    = 'UNCACHED';
-          status[appCache.IDLE]        = 'IDLE';
-          status[appCache.CHECKING]    = 'CHECKING';
-          status[appCache.DOWNLOADING] = 'DOWNLOADING';
-          status[appCache.UPDATEREADY] = 'UPDATEREADY';
-          status[appCache.OBSOLETE]    = 'OBSOLETE';
-
- 
-          if(status[appCache.status]) {
-            logDebug(status[appCache.status]);
-          } else {
-            logDebug('UKNOWN CACHE STATUS');
-          }
-
-        };
-
-        // Some general setup
-        // -------------------------------
-
-        var runUnitTest = ( window.location.hash == '#unittest');
-
-        logging.threshold  = logging.debug;
-        logDebug('Loading page...');
-        logDebug('You are running ' + checkBrowser() + '.');
-        logDebug('Running unit tests: ' + runUnitTest);
-
-        if (Modernizr.localstorage) {
-          logDebug("window.localStorage is available!");
-        } else {
-          logDebug("window.localStorage is NOT available!");
-        }
-
-        checkAppCache();
-
-        // Setup routing
-        // -------------------------------
-
-        // Screen 1
-        crossroads.addRoute('route1', function() { 
-          var html = $('#template1').html();
-          var output = Plates.bind(html, null, null);
-          $('#ui').html(output);
-          logDebug('logging static route1...');} 
-        );
-        
-
-         // Screen 2
-         crossroads.addRoute('route2', function() {
-         var html = $('#template2').html();
-          var output = Plates.bind(html, null, null);
-          $('#ui').html(output);
-          logDebug('logging static route2...');} 
-        ); 
-
-       // Screen 3      
-        crossroads.addRoute('route3', function() {
-          var html = $('#template3').html();
-          var output = Plates.bind(html, null, null);
-          $('#ui').html(output);
-          logDebug('logging static route3...');} 
-        ); 
-        
-        
-        // Also log routes that did not match anything (useful for debugging)
-        crossroads.bypassed.add(function(request){
-          logDebug("A route that wasn't matched:"+request); 
-        });
-
-
-        // Setup hasher
-        // -------------------------------
-
-        function parseHash(newHash, oldHash){
-          crossroads.parse(newHash); 
-        }
-        
-        // parse initial hash 
-        hasher.initialized.add(parseHash);
-
-        // parse hash changes
-        hasher.changed.add(parseHash);
-
-        // start listening for history change
-        hasher.init();
-        
-        // update URL fragment generating new history record 
-        hasher.setHash('route1');
-
-        // Create the MVC model
-        var app = new FortnoxController();
-
-
-        // Run In-browser unit tests of the hash has been set to '#unittest'
-        // -----------------------------------------------------------------
-
-        if (runUnitTest) {
-
-          test("Validate that the app has loaded ok...", function(){
-            
-            assert( "testing" == "testing", "Tests are executing and the page has been loaded if this is shown" );
-          });
-
-        }     
+        // run the app, controller.js for the code
+        window.main();
 
       }());
 
+   } // window.onload
 
-    } // window.onload
 
     </script>
 

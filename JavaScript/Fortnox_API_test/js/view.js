@@ -17,19 +17,19 @@
 'use strict';
 
 // Create Fortnox View Object
-var FortnoxView = Stapes.subclass({
+var FortnoxSettingsView = Stapes.subclass({
     'constructor' : function() {
         this.bindEventHandlers();
     }
 });
 
 // Static methods and properties
-FortnoxView.extend({
+FortnoxSettingsView.extend({
     ENTER_KEY_KEYCODE : 13
 });
 
 // Prototype methods and properties
-FortnoxView.proto({
+FortnoxSettingsView.proto({
 
     'bindEventHandlers' : function() {
 

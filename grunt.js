@@ -48,7 +48,7 @@ module.exports = function(grunt) {
     //-------------
 
     doccoh: {
-      src: ['*.js', 'JavaScript/**/*.js']
+      src: ['*.js', 'JavaScript/**/*.js' ]
     },
 
     clean: {

@@ -16,7 +16,7 @@
 
 'use strict';
 
-var FortnoxModel = Stapes.subclass({
+var FortnoxSettingsModel = Stapes.subclass({
     'constructor' : function(store) {
         this.set( store );
    },
@@ -24,7 +24,7 @@ var FortnoxModel = Stapes.subclass({
 
 });
 
-var FortnoxStore = Stapes.subclass({
+var FortnoxSettingsStore = Stapes.subclass({
     'constructor' : function() {
         if (!'localStorage' in window) {
             logErr("Saving is not supported in your browser :(")
