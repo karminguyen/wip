@@ -17,7 +17,7 @@ CACHE:
 /lib/js/crossroads.min.js
 /lib/js/hasher.min.js
 /lib/js/plates.js
-/lib/js/stapes.min.js
+/lib/js/stapes.js
 
 /JavaScript/Fortnox_API_test/js/view.js
 /JavaScript/Fortnox_API_test/js/model.js

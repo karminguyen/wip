@@ -203,6 +203,25 @@ window.main = function() {
     this.app = new FortnoxSettingsController();
 
 
+    // Just testing profiling
+    // ---------------------------------------------
+
+    //jQuery.profile.start();
+
+    // The hash for the object ot fetch
+    var objSHA;
+    $.ajax({
+      url:      'https://api.github.com/repos/colmsjo/wip/contents/JavaScript/GitContentExample.text',
+      origin:   'https://s3-eu-west-1.amazonaws.com/',
+      type:     'GET',
+      success: function(data) {
+        objSHA = data.sha;
+      }
+    });
+
+    //jQuery.profile.done();
+
+
     // Run In-browser unit tests of the hash has been set to '#unittest'
     // -----------------------------------------------------------------
 
