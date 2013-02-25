@@ -1,0 +1,9 @@
+{
+    "name": "colmsjo/aws-sdk-example",
+    "require": {
+        "php": ">=5.3.0",
+        "aws/aws-sdk-php": "*",
+        "herrera-io/pake": "1.*",
+        "EHER/PHPUnit": "*"
+    }
+}
