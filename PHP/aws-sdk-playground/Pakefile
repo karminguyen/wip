@@ -14,3 +14,9 @@ $task('test', 'Test using PHPUnit', function () use ($pake) {
                    ->output($process->stream(STDOUT))
                    ->run();
 });
+
+$task('run', 'Running example1.php', function ($input, $output) {
+
+    require './example1.php';
+
+});
