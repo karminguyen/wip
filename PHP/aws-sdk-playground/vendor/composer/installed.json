@@ -591,5 +591,367 @@
         "installation-source": "dist",
         "notification-url": "http://packagist.org/downloads/",
         "description": "Unofficial version of PHPUnit to be handled with Composer."
+    },
+    {
+        "name": "instaclick/php-code-sniffer",
+        "version": "1.4.2",
+        "version_normalized": "1.4.2.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/instaclick/PHP_CodeSniffer",
+            "reference": "1.4.2"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://github.com/instaclick/PHP_CodeSniffer/archive/1.4.2.zip",
+            "reference": "1.4.2",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.1.2"
+        },
+        "time": "2012-11-09 02:33:21",
+        "bin": [
+            "scripts/phpcs"
+        ],
+        "type": "library",
+        "installation-source": "dist",
+        "notification-url": "http://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Greg Sherwood",
+                "role": "lead"
+            }
+        ],
+        "description": "PHP_CodeSniffer tokenises PHP, JavaScript and CSS files and detects violations of a defined set of coding standards.",
+        "homepage": "http://www.squizlabs.com/php-codesniffer",
+        "keywords": [
+            "phpcs",
+            "standards"
+        ]
+    },
+    {
+        "name": "twig/twig",
+        "version": "v1.12.2",
+        "version_normalized": "1.12.2.0",
+        "source": {
+            "type": "git",
+            "url": "git://github.com/fabpot/Twig.git",
+            "reference": "v1.12.2"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/fabpot/Twig/zipball/v1.12.2",
+            "reference": "v1.12.2",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.2.4"
+        },
+        "time": "2013-02-09 18:21:53",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.12-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Twig_": "lib/"
+            }
+        },
+        "notification-url": "http://packagist.org/downloads/",
+        "license": [
+            "BSD-3"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            },
+            {
+                "name": "Armin Ronacher",
+                "email": "armin.ronacher@active-4.com"
+            }
+        ],
+        "description": "Twig, the flexible, fast, and secure template language for PHP",
+        "homepage": "http://twig.sensiolabs.org",
+        "keywords": [
+            "templating"
+        ]
+    },
+    {
+        "name": "symfony/yaml",
+        "version": "v2.1.8",
+        "version_normalized": "2.1.8.0",
+        "target-dir": "Symfony/Component/Yaml",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/Yaml.git",
+            "reference": "v2.1.8"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/Yaml/zipball/v2.1.8",
+            "reference": "v2.1.8",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.3"
+        },
+        "time": "2013-01-27 16:12:43",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Symfony\\Component\\Yaml": ""
+            }
+        },
+        "notification-url": "http://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "http://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony Yaml Component",
+        "homepage": "http://symfony.com"
+    },
+    {
+        "name": "symfony/filesystem",
+        "version": "v2.1.8",
+        "version_normalized": "2.1.8.0",
+        "target-dir": "Symfony/Component/Filesystem",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/symfony/Filesystem.git",
+            "reference": "v2.1.8"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/symfony/Filesystem/zipball/v2.1.8",
+            "reference": "v2.1.8",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.3"
+        },
+        "time": "2013-01-09 08:51:07",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Symfony\\Component\\Filesystem": ""
+            }
+        },
+        "notification-url": "http://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            },
+            {
+                "name": "Symfony Community",
+                "homepage": "http://symfony.com/contributors"
+            }
+        ],
+        "description": "Symfony Filesystem Component",
+        "homepage": "http://symfony.com"
+    },
+    {
+        "name": "nikic/php-parser",
+        "version": "v0.9.3",
+        "version_normalized": "0.9.3.0",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/nikic/PHP-Parser",
+            "reference": "v0.9.3"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://github.com/nikic/PHP-Parser/archive/v0.9.3.zip",
+            "reference": "v0.9.3",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.2"
+        },
+        "time": "2012-11-22 18:54:05",
+        "type": "library",
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "PHPParser": "lib/"
+            }
+        },
+        "notification-url": "http://packagist.org/downloads/",
+        "license": [
+            "BSD-3-Clause"
+        ],
+        "authors": [
+            {
+                "name": "Nikita Popov"
+            }
+        ],
+        "description": "A PHP parser written in PHP",
+        "keywords": [
+            "parser",
+            "php"
+        ]
+    },
+    {
+        "name": "pimple/pimple",
+        "version": "v1.0.1",
+        "version_normalized": "1.0.1.0",
+        "source": {
+            "type": "git",
+            "url": "git://github.com/fabpot/Pimple.git",
+            "reference": "v1.0.1"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://github.com/fabpot/Pimple/archive/v1.0.1.zip",
+            "reference": "v1.0.1",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.0"
+        },
+        "time": "2012-11-11 08:32:34",
+        "type": "library",
+        "extra": {
+            "branch-alias": {
+                "dev-master": "1.0.x-dev"
+            }
+        },
+        "installation-source": "dist",
+        "autoload": {
+            "psr-0": {
+                "Pimple": "lib/"
+            }
+        },
+        "notification-url": "http://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            }
+        ],
+        "description": "Pimple is a simple Dependency Injection Container for PHP 5.3",
+        "homepage": "http://pimple.sensiolabs.org",
+        "keywords": [
+            "container",
+            "dependency injection"
+        ]
+    },
+    {
+        "name": "sami/sami",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/fabpot/Sami.git",
+            "reference": "8ba8d81abcc555c6defbda7d2fb721a8fd8b2af2"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/fabpot/Sami/zipball/8ba8d81abcc555c6defbda7d2fb721a8fd8b2af2",
+            "reference": "8ba8d81abcc555c6defbda7d2fb721a8fd8b2af2",
+            "shasum": ""
+        },
+        "require": {
+            "nikic/php-parser": "0.9.*",
+            "php": ">=5.3.0",
+            "pimple/pimple": "1.0.*",
+            "symfony/console": ">=2.1,<3.0-dev",
+            "symfony/filesystem": ">=2.1,<3.0-dev",
+            "symfony/finder": ">=2.1,<3.0-dev",
+            "symfony/process": ">=2.1,<3.0-dev",
+            "symfony/yaml": ">=2.1,<3.0-dev",
+            "twig/twig": "1.*"
+        },
+        "time": "2013-01-08 14:05:13",
+        "bin": [
+            "sami.php"
+        ],
+        "type": "application",
+        "installation-source": "source",
+        "autoload": {
+            "psr-0": {
+                "Sami": "."
+            }
+        },
+        "notification-url": "http://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Fabien Potencier",
+                "email": "fabien@symfony.com"
+            }
+        ],
+        "description": "Sami, an API documentation generator",
+        "homepage": "http://sami.sensiolabs.org",
+        "keywords": [
+            "phpdoc"
+        ]
+    },
+    {
+        "name": "doxphp/doxphp",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://github.com/avalanche123/doxphp.git",
+            "reference": "d892475af6b1f74cdec259cb19e5dec39af2bb64"
+        },
+        "dist": {
+            "type": "zip",
+            "url": "https://api.github.com/repos/avalanche123/doxphp/zipball/d892475af6b1f74cdec259cb19e5dec39af2bb64",
+            "reference": "d892475af6b1f74cdec259cb19e5dec39af2bb64",
+            "shasum": ""
+        },
+        "require": {
+            "php": ">=5.3.2"
+        },
+        "time": "2012-03-31 23:05:30",
+        "type": "library",
+        "installation-source": "source",
+        "notification-url": "http://packagist.org/downloads/",
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Bulat Shakirzyanov",
+                "email": "mallluhuct@gmail.com",
+                "homepage": "http://avalanche123.com"
+            }
+        ],
+        "description": "Dox for PHP, inspired by Dox for JavaScript.",
+        "homepage": "http://github.com/avalanche123/doxphp/",
+        "keywords": [
+            "api docs",
+            "documentation",
+            "phpdoc"
+        ]
     }
 ]
