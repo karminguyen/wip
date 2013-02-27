@@ -21,4 +21,11 @@ def hello(name="world"):
 def test():
     local("PYTHONPATH=tests ./bin/python -m test1")
 
+#
+# Generate documentation
+#
+
+def doc():
+    local("./bin/pycco tests/*.py")
+
 
