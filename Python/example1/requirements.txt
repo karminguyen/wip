@@ -1,2 +1,0 @@
-MyApp
-Fabric>=1.0.0
