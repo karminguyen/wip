@@ -8,6 +8,6 @@ Just playing around with AWS SDK for PHP. The installation in performed using [c
   * In case of changes to composer.json do: `composer update`
  * Run example: `./vendor/bin/pake run`
  * Run unit tests: `./vendor/bin/phpunit tests`
- * Run code sniffer: `./vendor/bin/phpcs src/*.php`
- * Generate documentation `php ./vendor/bin/sami.php update sami-config.php`
+ * Run code sniffer: `./vendor/bin/phpcs --standard=Zend src/**/*.php tests/*.php`
+ * Generate documentation `php ./vendor/bin/sami.php update --force sami-config.php`
 

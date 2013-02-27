@@ -1,31 +1,53 @@
 <?php
+/** 
+ * wget.php
+ *
+ * PHP Version 5 
+ *
+ * @category Gizur
+ * @package  Utils
+ * @author   Jonas Colmsjo <jonas@gizur.com>
+ * @license  http://opensource.org/licenses/MIT MIT
+ * @link     http://www.gizur.com
+ *
+ * @see PhpDoc is used for documentation: 
+ * http://www.phpdoc.org/docs/latest/for-users/phpdoc-reference.html
+ *
+ * @see Coding standards:
+ * http://framework.zend.com/manual/1.12/en/coding-standard.html
+ *
+ *------------------------------
+ **/
 
-// config.inc.php
-//------------------------------
-//
-// 2013-02-25, Jonas Colmsjö
-//
-// A small utility that saves files to s3
-//
-// Documentation is 'docco style' - http://jashkenas.github.com/docco/
-//
-// Coding standards http://pear.php.net/manual/en/standards.php
-//
-//------------------------------
+namespace Gizur;
 
 
-// Constants and vairables
-//---------------------------------------------------------------
+use Aws\Common\Enum\Region;
+
 
 /**
- * The AWS bucket to use
+ * MyConfig
+ *
+ * NOTE: Update configuration below
  */
-define("BUCKET", "gizur-tmp");
 
-/**
- * Sets of files to upload
- */
-$paths = array ('/var/log/*.log', '/var/log/apache2/error_log'); 
+class MyConfig
+{
 
+    /**
+     * The AWS bucket to use
+     */
+    public $bucket = "gizur-tmp";
+ 
+    /**
+     * The AWS region to use
+     */
+    public $region = Region::IRELAND;
 
-?>
+    /**
+     * Sets of files to upload
+     */
+    public $paths = array ('/var/log/*.log', '/var/log/apache2/error_log'); 
+
+}
+
